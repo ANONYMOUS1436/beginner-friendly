@@ -1,20 +1,18 @@
-
-# Function to print Fibonacci series up to a given limit
-def fibonacci_series(limit):
-    # Initialize the first two numbers of the series
+def fibonacci_sequence(limit):
     a, b = 0, 1
-    
-    # Print the first number
-    print("Fibonacci series up to", limit, ":")
-    print(a, end=" ")
+    fibonacci_numbers = []
 
-    # Loop to generate the series until the limit is reached
-    while b <= limit:
-        print(b, end=" ")  # Print the next number
-        a, b = b, a + b    # Update the values for the next iteration
+    while a <= limit:
+        fibonacci_numbers.append(a)
+        a, b = b, a + b
 
-# Take input from the user for the limit
-user_limit = int(input("Enter the limit for the Fibonacci series: "))
+    return fibonacci_numbers
 
-# Call the function to print the Fibonacci series
-fibonacci_series(user_limit)
+try:
+    user_limit = int(input("Enter the limit for the Fibonacci sequence: "))
+    if user_limit < 0:
+        print("Please enter a non-negative integer.")
+    else:
+        sequence = fibonacci_sequence(user_limit)
+        print("Fibonacci sequence up to", user_limit, ":", sequence)
+except ValueError:
