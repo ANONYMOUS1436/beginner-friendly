@@ -1,24 +1,10 @@
-# Main code with string slicing
-def is_palindrome(n):
-    return n == n[::-1]  # Check if n is equal to its reverse
+def is_palindrome(s):
+    s = s.replace(" ", "").lower()
+    return s == s[::-1]
 
-n = input("Enter a string: ")  # User input
-print(is_palindrome(n))  # Calling the function and printing True or False
-
-
-"""
-RECURSION METHOD
-Feel free to edit and contribute <3
-"""
-
-# Recursive method to check palindrome
-def is_palindrome_recursive(n):
-    if len(n) <= 1:
-        return True
-    if n[0] != n[-1]:
-        return False
-    return is_palindrome_recursive(n[1:-1])
-
-# Uncomment this to use the recursive method:
-# n = input("Enter a string: ")
-# print(is_palindrome_recursive(n))
+# Get user input
+user_input = input("Enter a string to check if it's a palindrome: ")
+if is_palindrome(user_input):
+    print(f'"{user_input}" is a palindrome.')
+else:
+    print(f'"{user_input}" is not a palindrome.')
